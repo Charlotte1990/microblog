@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <% include partials/head %>
+    <body class="bg-light">
+      <!-- navigation -->
+      <% include partials/nav %>
+     <!-- alert message -->
+     <% include partials/alert %>
+
+      <!-- content -->
+      <main role="main" class="container">
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+          <img class="mr-3" src="/images/logo.jpeg" alt="profile" width="48" height="48">
+          <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">MicroBlog</h6>
+            <small>Since 2018</small>
+          </div>
+        </div>
+
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+                <h6 class="border-bottom border-gray pb-2 mb-0">最新</h6>
+                <% results.forEach(function(result, index) {%>
+                    <div class="media text-muted pt-3  border-bottom border-gray">
+                        <img src=<%= result.avatar %> alt="profile" class="mr-2 rounded">
+                        <div class="media-body">
+                            <p class="media-heading pb-1 mb-0 small lh-125">
+                                <strong class="d-block text-gray-dark" style="font-size:1.0rem">  
+                                    <a href="/u/<%= result.post.creator %>">
+                                        <%= result.post.creator %>
+                                    </a>           
+                                </strong>                                                   
+                            </p>
+                            <p> 
+                                <small>
+                                    <%= result.post.createdDate %>
+                                </small>   
+                            </p>
+                            <p style="word-wrap:break-word; font-size:1.0rem"><%= result.post.post %></p> 
+                        </div>              
+                    </div>
+                   
+                <%}) %>
+            </div>
+  
+        
+      </main>
+    </body>
+
+</html>

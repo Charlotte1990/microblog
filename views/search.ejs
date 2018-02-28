@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<% include partials/head %>
+
+    <body class="bg-light">
+        <!-- navigation -->
+        <% include partials/nav %>
+            <!-- content -->
+            <main role="main" class="container" style="margin-top:20px">
+                <% searchResult.forEach(function(user) {%>
+                    <div class="my-3 p-3 bg-white rounded box-shadow" style="margin-top: 10px;  height: auto"> 
+                        <div class="media text-muted pt-3">
+                            <div class="media-left">
+                                <img src=<%= user.avatar %> alt="profile" class="mr-2 rounded">
+                            </div>  
+                            <div class="media-body">
+                                <p class="media-heading pb-1 mb-0 small lh-125">
+                                    <strong class="d-block text-gray-dark" style="font-size:1.0rem">  
+                                        <a href="/u/<%= user.name %>">
+                                            <%= user.name %>
+                                        </a>                      
+                                    </strong>
+                                </p>  
+                            </div>
+                        </div>          
+                        
+                    </div>                 
+                <%}) %>
+               
+        </main>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<% include partials/head %>
+
+    <body class="bg-light">
+        <!-- navigation -->
+        <% include partials/nav %>
+            <!-- alert message -->
+            <% include partials/alert %>
+            <!-- content -->
+            <main role="main" class="container">
+                <div class="d-flex align-items-center p-3 my-3 text-white-50 rounded box-shadow">
+                    <form method="post" action="/post" class="well center" style="text-align: center; width: 100%">
+                       
+                            <textarea name="post" style="width:100%; height: auto;"></textarea>
+                
+                            <button type="submit" class="btn btn-success" style="float: right">
+                                <i class="icon-comment icon-white">
+                                </i> 发布
+                            </button>
+                       
+                    </form>
+                </div>
+               
+                   
+                <% results.forEach(function(result) {%>
+                    <div class="my-3 p-3 bg-white rounded box-shadow" style="margin-top: 10px;  height: auto"> 
+                        <div class="media text-muted pt-3">
+                            <div class="media-left">
+                                <img src=<%= result.avatar %> alt="profile" class="mr-2 rounded">
+                            </div>  
+                            <div class="media-body">
+                                <p class="media-heading pb-1 mb-0 small lh-125">
+                                    <strong class="d-block text-gray-dark" style="font-size:1.0rem">  
+                                        <a href="/u/<%= result.post.creator %>">
+                                            <%= result.post.creator %>
+                                        </a>                      
+                                    </strong>
+                                </p>  
+                                <p>
+                                    <small>
+                                        <%= result.post.createdDate %>
+                                    </small>   
+                                </p> 
+                                <p style="word-wrap:break-word;">
+                                        <%= result.post.post %>
+                                </p>  
+                            </div>
+                        </div>          
+                        
+                    </div>                 
+                <%}) %>
+               
+        </main>
+    </body>
+</html>

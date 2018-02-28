@@ -1,0 +1,5 @@
+<% if (!(Object.keys(expressFlash).length === 0)) { %>
+  <div class="alert <%= Object.keys(expressFlash)[0] %>" style="margin: 20px auto; width:50%; text-align:center">
+      <%= expressFlash[Object.keys(expressFlash)[0]] %>
+  </div>
+<% } %>
